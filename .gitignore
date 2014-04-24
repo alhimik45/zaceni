@@ -1,0 +1,4 @@
+start.sh
+*.sublime-workspace
+backup/
+Gemfile.lock

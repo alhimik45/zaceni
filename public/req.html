@@ -1,0 +1,15 @@
+<div ng-include="'head.html'"></div>
+<div class="alert alert-success text-center" ng-show="ok">Отлично! Мы рассмотрим запрос в ближайшее время!</div>
+<div class="text-center">
+	<form name="reqForm" style="max-width:20%; min-width:200px;margin:auto" novalidate>
+		<div   class="input-group input-group-lg">
+			<h4>Напишите Ваше мнение о сервисе, запрос на добавление в рейтинг или предложите свой критерий сравнения:</h4>
+
+			<textarea class="form-control row-fluid" rows="4" ng-model="link" required></textarea>
+		</div>
+		<br />
+		<button class="btn btn-danger btn-mini" ng-click="send_req()">
+			<h4>Отправить</h4>
+		</button>
+	</form>
+</div>

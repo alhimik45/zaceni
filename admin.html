@@ -1,0 +1,21 @@
+<html>
+<head>
+	<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+
+
+	<script type="text/javascript">
+		$.get("log", function(data){
+			$("#logg").text(data);
+		});
+	</script>
+	
+
+
+</head>
+<body>
+	<pre id="logg">
+
+	</pre>
+
+</body>
+</html>

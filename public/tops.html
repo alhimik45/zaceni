@@ -1,0 +1,18 @@
+<div ng-include="'head.html'"></div>
+<h3 class="text-center"><blockquote>Кто-то — в топе, кто-то — в жопе!</blockquote></h3>
+<div class="text-center">
+	<a href="#/top/all">
+		<button class="btn btn-danger btn-large"  style="width:40%;">
+			<h4>Все участники</h4>
+		</button>
+	</a>
+	<p></p>
+	<div ng-repeat="top in tops">
+		<a ng-href="#/top/{{top.id}}">
+			<button class="btn btn-danger btn-large"  style="width:40%;">
+				<h4>{{top.text}}</h4>
+			</button>
+		</a>
+		<p></p>
+	</div>
+</div>

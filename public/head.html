@@ -1,0 +1,18 @@
+<h2 class="text-center">
+	<div ng-repeat="link in links" style="display:inline;">
+		<a ng-href="{{link[0]}}">{{link[1]}}</a>&nbsp;&nbsp;&nbsp;
+	</div>
+</h2>
+
+<div ng-controller="NewsCtrl">
+	<h3 style="position:fixed;">Набранные баллы: {{scores}}</h3>
+	<div
+	class="alert alert-success text-center"
+	ng-repeat="item in news | filter:filterUnshowedNews"
+	ng-show="$last">
+
+	{{item.text}}&nbsp;
+	<div class="btn btn-link" style="border: 1px solid #468847" ng-click="news_ok(item)">Закрыть</div>
+
+</div>
+</div>

@@ -1,0 +1,47 @@
+<div ng-repeat="user in cache">
+	<img ng-src="{{user.left.photo}}" class="preload" />
+	<img ng-src="{{user.right.photo}}" class="preload" />
+</div>
+
+<div ng-include="'head.html'"></div>
+
+<h3 class="text-center">{{ask}}</h3>
+
+<table style="width:100%;">
+	<tr>
+		<td width="40%">
+			<div style="float:right;">
+				<h4>{{left.name.substr(0,40)}}</h4>
+				<img ng-src="{{left.photo}}" style="height:35vh;" ng-click="vote('left')">
+				<p>Какой класс:</p>
+				<p>
+					<button ng-repeat="num in formarray['left']"
+					ng-click="voteform('left',num)"
+					class="btn {{left.form==num?'btn-success':'btn-danger btn-small';}}">{{num}}</button>
+				</p>
+			</div>
+
+		</td>
+		<td  width="20%">
+			<div class="text-center">
+				<button  class="btn btn-success" onclick="$('#chat').dialog('open')">Мини-чат</button>
+			</div>
+			<h3 class="text-center">ИЛИ</h3>
+			<div class="text-center">
+				<button class="btn btn-success" ng-click="skip()">Пропустить</button>
+			</div>
+		</td>
+		<td  width="40%">
+			<div style="float:left;">
+				<h4>{{right.name.substr(0,40)}}</h4>
+				<img ng-src="{{right.photo}}" style="height:35vh;"  ng-click="vote('right')">
+				<p>Какой класс:</p>
+				<p>
+					<button ng-repeat="num in formarray['right']"
+					ng-click="voteform('right',num)"
+					class="btn {{right.form==num?'btn-success':'btn-danger btn-small';}}">{{num}}</button>
+				</p>
+			</div>
+		</td>
+	</tr>
+</table>

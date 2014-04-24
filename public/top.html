@@ -1,0 +1,64 @@
+<div ng-include="'head.html'"></div>
+<h3 class="text-center"><blockquote>{{top_text}}</blockquote></h3>
+<div class="text-center">
+	<div class="input-group">
+		<input ng-model="searchText "type="text" class="form-control" placeholder="Поиск участника" style="width:40%">
+	</div>
+
+	<table width="40%" align="center">
+		<tr>
+			<td width="9%" ng-repeat="form in forms" style="display: table-cell !important">
+				<input type="checkbox" ng-model="checked_forms[$index]" value="{{form}}">&nbsp;&nbsp;{{form}}
+			</td>
+		</tr>
+	</table>
+	<br/>
+
+	<div ng-repeat="user in users | filter:searchText | filter:filterForm | orderBy:'rate':true">
+		<button class="btn btn-danger btn-mini resizeble" style="width:40%;">
+			<table width="100%">
+				<tr>
+					<td  width="20%">
+
+						<img ng-show="!user.photo.loaded" src="712.GIF" style="height:5vh;max-height:50px; float:left"/>
+
+						<img load-animation="user.photo"  ng-show="user.photo.loaded" ng-src="{{user.photo.src}}" style="height:5vh;max-height:50px; float:left"/>
+
+					</td>
+					<td  width="40%">
+						<h4>{{user.name.substr(0,40)+" ("+(user.form?user.form+"&nbsp;класс":"класс&nbsp;неизвестен")+")"}}</h4>
+					</td>
+					<td  width="7%" ng-show="id!='all'">
+						<button class="btn btn-info btn-small" ng-click="subrate(user,10)">
+							<h4 style="line-height:50%; ">-10</h4>
+						</button>
+					</td>
+					<td  width="7%" ng-show="id!='all'">
+
+						<button class="btn btn-info btn-small" ng-click="subrate(user,1)">
+							<h4 style="line-height:50%; ">-</h4>
+						</button>
+					</td>
+					<td  width="10%">
+						<h4>{{user.rate}}</h4>
+					</td>
+					<td  width="10%"  ng-show="id!='all'">
+
+						<button class="btn btn-success btn-small" ng-click="addrate(user,1)">
+							<h4  style="line-height:50%; " >+</h4>
+						</button>
+					</td>
+					<td  width="7%" ng-show="id!='all'">											
+						<button class="btn btn-success btn-small" ng-click="addrate(user,10)">
+							<h4  style="line-height:50%; " >+10</h4>
+						</button>										
+						<br/>
+					</td>
+				</tr>
+			</table>
+		</button>
+		<p></p>
+		<p></p>
+	</div>
+</div>
+
