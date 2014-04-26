@@ -248,7 +248,7 @@ post "/addrate" do
 
 		add_voter_ip request.ip, uid,count, :add
 
-		add_rating_to_user uid,rid,count
+		User::add_rating uid,rid,count
 		""
 	end
 end
@@ -261,7 +261,7 @@ post "/subrate" do
 
 		add_voter_ip request.ip, uid,count, :sub
 
-		add_rating_to_user uid,rid,-count
+		User::add_rating uid,rid,-count
 		""
 	end
 end
